@@ -50,12 +50,39 @@
 <h2>Story Idea Submission Form</h2>
 
 <form id="storyForm">
-  <!-- Form fields -->
+  <div class="form-group">
+    <label for="title">Title of Your Story Idea:</label>
+    <input type="text" id="title" name="title" required>
+  </div>
+  <div class="form-group">
+    <label for="synopsis">Brief Synopsis:</label>
+    <textarea id="synopsis" name="synopsis" rows="4" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="characters">Characters:</label>
+    <textarea id="characters" name="characters" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="setting">Setting:</label>
+    <textarea id="setting" name="setting" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="tone">Tone/Mood:</label>
+    <input type="text" id="tone" name="tone">
+  </div>
+  <div class="form-group">
+    <label for="scenes">Important Scenes:</label>
+    <textarea id="scenes" name="scenes" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="requests">Special Requests:</label>
+    <textarea id="requests" name="requests" rows="4"></textarea>
+  </div>
   <button type="button" onclick="exportData()">Export Prompt</button>
 </form>
 
-<div id="formattedPrompt"></div>
-<button id="copyButton" style="display:none;" onclick="copyText()">Copy to Clipboard</button>
+<!-- Placeholder for displaying the formatted prompt -->
+<div id="formattedPrompt" style="margin-top:20px;"></div>
 
 <script>
 function exportData() {
