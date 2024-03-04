@@ -6,8 +6,11 @@
 <title>Story Idea Submission Form</title>
 <style>
   body {
-    font-family: Arial, sans-serif;
+    font-family: 'Courier New', Courier, monospace; /* Typewriter font */
     margin: 20px;
+    background-color: #f5f5f5; /* Light mode background */
+    color: #333; /* Light mode text */
+    transition: background-color 0.3s, color 0.3s;
   }
   .form-group {
     margin-bottom: 20px;
@@ -20,27 +23,49 @@
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
+    border: 2px solid #333; /* Darker border for a vintage look */
+    background-color: #fff; /* Light background for inputs */
+    color: #333; /* Light mode input text */
     border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
   }
   button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #6a994e; /* A vintage green */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
   button:hover {
-    background-color: #0056b3;
+    background-color: #44633f; /* Darker shade of the button color */
   }
   #formattedPrompt {
-    white-space: pre-wrap; /* Ensures the formatted prompt respects line breaks */
-    background-color: #f8f9fa;
+    white-space: pre-wrap;
+    background-color: #eaeaea; /* Light grey background */
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     margin-top: 20px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  /* Dark mode styles */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #121212; /* Dark mode background */
+      color: #e0e0e0; /* Dark mode text */
+    }
+    input[type="text"], textarea {
+      background-color: #333; /* Darker background for inputs */
+      color: #e0e0e0; /* Dark mode input text */
+      border: 2px solid #bbb; /* Lighter border for contrast */
+    }
+    #formattedPrompt {
+      background-color: #333; /* Dark background for the prompt box */
+      color: #e0e0e0; /* Dark mode text color for the prompt box */
+    }
   }
 </style>
 </head>
