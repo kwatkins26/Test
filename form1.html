@@ -67,14 +67,22 @@ function exportData() {
   var scenes = document.getElementById("scenes").value;
   var requests = document.getElementById("requests").value;
   
-  // Format the data into a structured prompt
+  // Format the data into a structured prompt, including the request part
   var formattedPrompt = `**Title of Your Story Idea:**\n${title}\n\n` +
     `**Brief Synopsis:**\n${synopsis}\n\n` +
-    `**Characters:**\n${characters}\n\n` +
-    `**Setting:**\n${setting}\n\n` +
-    `**Tone/Mood:**\n${tone}\n\n` +
-    `**Important Scenes:**\n${scenes}\n\n` +
-    `**Special Requests:**\n${requests}`;
+    `**Key Elements to Include:**\n` +
+    `- **Characters:**\n${characters}\n` +
+    `- **Setting:**\n${setting}\n` +
+    `- **Tone/Mood:**\n${tone}\n` +
+    `- **Important Scenes:**\n${scenes}\n` +
+    `- **Special Requests:**\n${requests}\n\n` +
+    `**Request:**\n` +
+    `1. **Screenplay Draft:**\n` +
+    `- Based on the provided synopsis and key elements, draft a short screenplay covering the story. Please include essential dialogues and scene descriptions.\n\n` +
+    `2. **Shot List:**\n` +
+    `- Create a detailed shot list for each scene in the screenplay. Please include camera angles, types of shots (close-up, wide, etc.), and any important action or dialogue within the shot.\n\n` +
+    `3. **Production Shot List for Efficient Shooting:**\n` +
+    `- Organize the shot list by location, grouping shots to optimize filming time. Please indicate which scene each shot belongs to and include necessary lines that need to be read during each shot. The goal is to minimize setup changes and make the shooting process as efficient as possible.`;
   
   // Display the formatted prompt for copying
   var displayDiv = document.getElementById("formattedPrompt");
