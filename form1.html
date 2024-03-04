@@ -30,7 +30,6 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-right: 10px; /* Adds spacing between buttons */
   }
   button:hover {
     background-color: #0056b3;
@@ -78,14 +77,14 @@
     <label for="requests">Special Requests:</label>
     <textarea id="requests" name="requests" rows="4"></textarea>
   </div>
-  <button type="button" onclick="exportData()">Export Prompt</button>
+  <button type="button" onclick="generatePrompt()">Generate Prompt</button>
 </form>
 
-<!-- Placeholder for displaying the formatted prompt -->
-<div id="formattedPrompt" style="margin-top:20px;"></div>
+<div id="formattedPrompt"></div>
+<button id="copyButton" style="display:none;" onclick="copyText()">Copy to Clipboard</button>
 
 <script>
-function exportData() {
+function generatePrompt() {
   var title = document.getElementById("title").value;
   var synopsis = document.getElementById("synopsis").value;
   var characters = document.getElementById("characters").value;
@@ -94,7 +93,7 @@ function exportData() {
   var scenes = document.getElementById("scenes").value;
   var requests = document.getElementById("requests").value;
   
-  // Format the data into a structured prompt, including the request part
+  // Format the data into a structured prompt
   var formattedPrompt = `**Title of Your Story Idea:**\n${title}\n\n` +
     `**Brief Synopsis:**\n${synopsis}\n\n` +
     `**Key Elements to Include:**\n` +
@@ -111,21 +110,20 @@ function exportData() {
     `3. **Production Shot List for Efficient Shooting:**\n` +
     `- Organize the shot list by location, grouping shots to optimize filming time. Please indicate which scene each shot belongs to and include necessary lines that need to be read during each shot. The goal is to minimize setup changes and make the shooting process as efficient as possible.`;
   
-  // Display the formatted prompt for copying
-  var displayDiv = document.getElementById("formattedPrompt");
-  displayDiv.innerText = formattedPrompt;
+  // Display the formatted prompt
+  document.getElementById("formattedPrompt").textContent = formattedPrompt;
   
   // Show the copy button
-  document.getElementById("copyButton").style.display = "inline-block";
+  document.getElementById("copyButton").style.display = "block";
 }
 
 function copyText() {
-  // Get the text from the formattedPrompt div
-  var text = document.getElementById("formattedPrompt").innerText;
+  var text = document.getElementById("formattedPrompt").textContent;
   navigator.clipboard.writeText(text).then(function() {
-    alert("Text copied to clipboard");
+    alert("Prompt copied to clipboard!");
   }, function(err) {
-    console.error('Could not copy text: ', err);
+    console.error('Failed to copy text: ', err);
+    alert('Failed to copy text: ' + err);
   });
 }
 </script>
